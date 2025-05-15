@@ -1,7 +1,8 @@
 // Récup elt html
 const btn = document.getElementById("calculer");
 const resultat = document.getElementById("resultat");
-
+const historique = document.getElementById("historique");
+let hist =[];
 btn.addEventListener("click", function () {
   const nb1 = parseFloat(document.getElementById("premiernb").value);
   const nb2 = parseFloat(document.getElementById("deuxièmenb").value);
@@ -11,6 +12,7 @@ btn.addEventListener("click", function () {
   switch (oper) {
     case "+":
       res = nb1 + nb2;
+      
       break;
     case "-":
       res = nb1 - nb2;
@@ -26,4 +28,13 @@ btn.addEventListener("click", function () {
   }
 
   resultat.textContent = "Résultat: " + res;
+
+  hist.push({ nb1, oper, nb2, res });
+  historique.innerHTML = "";
+  hist.forEach((item, index) => {
+  const ligne = document.createElement("p");
+  ligne.textContent = `${index + 1}: ${item.nb1} ${item.oper} ${item.nb2} = ${item.res}`;
+  historique.appendChild(ligne);
+});
+
 });
