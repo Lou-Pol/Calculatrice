@@ -1,11 +1,10 @@
-// Récupération des éléments HTML
+// Récup elt html
 const btn = document.getElementById("calculer");
 const resultat = document.getElementById("resultat");
 
-// Ajout de l'événement au clic
 btn.addEventListener("click", function () {
-  const nb1 = parseFloat(document.getElementById("nombre1").value);
-  const nb2 = parseFloat(document.getElementById("nombre2").value);
+  const nb1 = parseFloat(document.getElementById("premiernb").value);
+  const nb2 = parseFloat(document.getElementById("deuxièmenb").value);
   const oper = document.getElementById("operation").value;
 
   let res;
