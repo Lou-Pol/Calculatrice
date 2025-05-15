@@ -1,0 +1,23 @@
+.champsCalcul {
+     display: block;
+    margin:  auto;   
+}
+.erreur {
+            border:  solid red;
+        }
+#resultat {
+            font-weight: bold;
+        }
+.succes {
+            color: green;
+        }
+.negatif {
+            color: orange;
+        }
+.message_erreur {
+            color: red;
+        }
+#historique {
+            margin-top: 1em;
+        }
+        
