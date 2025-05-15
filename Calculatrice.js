@@ -50,7 +50,7 @@ btn.addEventListener("click", function () {
     if (typeof res === "number") {
         resultat.textContent = `Résultat: ${res}`;
         if (res > 0) {
-            resultat.classList.add("succes");
+            resultat.classList.add("positif");
         } else if (res < 0) {
             resultat.classList.add("negatif");
         } else {
