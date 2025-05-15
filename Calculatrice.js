@@ -1,4 +1,3 @@
-// Récupération des éléments HTML
 const btn = document.getElementById("calculer");
 const resultat = document.getElementById("resultat");
 const historique = document.getElementById("historique");
