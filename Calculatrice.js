@@ -1,84 +1,30 @@
-function additionner(a, b) {
-    return a + b;
-}
+// Récupération des éléments HTML
+const btn = document.getElementById("calculer");
+const resultat = document.getElementById("resultat");
 
-function soustraire(a, b) {
-    return a - b;
-}
+// Ajout de l'événement au clic
+btn.addEventListener("click", function () {
+  const nb1 = parseFloat(document.getElementById("nombre1").value);
+  const nb2 = parseFloat(document.getElementById("nombre2").value);
+  const oper = document.getElementById("operation").value;
 
-function multiplier(a, b) {
-    return a * b;
-}
+  let res;
+  switch (oper) {
+    case "+":
+      res = nb1 + nb2;
+      break;
+    case "-":
+      res = nb1 - nb2;
+      break;
+    case "*":
+      res = nb1 * nb2;
+      break;
+    case "/":
+      res = nb2 !== 0 ? nb1 / nb2 : "Erreur : division par 0";
+      break;
+    default:
+      res = "Opération inconnue";
+  }
 
-function diviser(a, b) {
-    if (b === 0) {
-        throw new Error("Division par zéro");
-    }
-    return a / b;
-}
-
-function valAbs(a) {
-    return Math.abs(a);
-}
-
-function puissance(a, b) {
-    return Math.pow(a, b);
-}
-
-function calculer() {
-    let quitter = false;
-    while (!quitter) {
-        let choix = prompt("Menu :\n1. Faire une opération\n2. Quitter\nChoisissez une option :");
-
-        if (choix === "1") {
-            let oper = prompt("Choisissez une opération (+, -, *, /, ^, abs) :");
-
-            let nb1, nb2, res;
-            try {
-                if (oper !== "abs") {
-                    nb1 = parseFloat(prompt("Entrez le premier nombre :"));
-                    nb2 = parseFloat(prompt("Entrez le deuxième nombre :"));
-                } else {
-                    nb1 = parseFloat(prompt("Entrez un nombre :"));
-                }
-
-                switch (oper) {
-                    case "+":
-                        res = additionner(nb1, nb2);
-                        break;
-                    case "-":
-                        res = soustraire(nb1, nb2);
-                        break;
-                    case "*":
-                        res = multiplier(nb1, nb2);
-                        break;
-                    case "/":
-                        res = diviser(nb1, nb2);
-                        break;
-                    case "^":
-                        res = puissance(nb1, nb2);
-                        break;
-                    case "abs":
-                        res = valAbs(nb1);
-                        break;
-                    default:
-                        alert("L'opération n'est pas valide");
-                        continue;
-                }
-
-                alert("Résultat : " + res);
-            } catch (error) {
-                alert("Erreur : " + error.message);
-            }
-        } else if (choix === "2") {
-            quitter = true;
-        } else {
-            alert("Option invalide");
-        }
-    }
-
-    alert("Au revoir");
-}
-
-// Lancer la calculatrice
-calculer();
+  resultat.textContent = "Résultat: " + res;
+});
