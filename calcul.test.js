@@ -9,6 +9,6 @@ test('soustraction', () => {
 test('mult', () => {
     expect(multiplication(2,5)).toBe(10);
 })
-test('addition', () => {
+test('division', () => {
     expect(division(12,4)).toBe(3);
 })
