@@ -1,5 +1,4 @@
 import { addition, soustraction, multiplication, division} from "./calculsafaire.js";
-const btn = document.getElementById("calculer");
 const resultat = document.getElementById("resultat");
 const historique = document.getElementById("historique");
 const inputA = document.getElementById("premiernb");
@@ -7,7 +6,11 @@ const inputB = document.getElementById("deuxièmenb");
 
 let hist = [];
 
-btn.addEventListener("click", function () {
+window.addEventListener('DOMContentLoaded', setup);
+
+
+export const Calculs = () =>{
+    
     const nb1 = parseFloat(inputA.value);
     const nb2 = parseFloat(inputB.value);
     const oper = document.getElementById("operation").value;
@@ -46,7 +49,11 @@ btn.addEventListener("click", function () {
         case "/": res = division(nb1,nb2); break;
         default: res = "Opération inconnue";
     }
-
+    AfficherRes(res);
+    Histori(nb1,oper,nb2,res);
+}
+export const AfficherRes = (res) =>
+    {
     if (typeof res === "number") {
         resultat.textContent = `Résultat: ${res}`;
         if (res > 0) {
@@ -57,15 +64,21 @@ btn.addEventListener("click", function () {
             resultat.classList.remove("succes", "negatif", "message_erreur");
         }
 
-        hist.push({ nb1, oper, nb2, res });
+    }
+};
+export const Histori = (nb1,oper,nb2,res)=>{
+    hist.push({ nb1, oper, nb2, res });
         historique.innerHTML = "";
-        hist.forEach((item, index) => {
+        hist.forEach((item, index) => 
+            {
             const ligne = document.createElement("p");
             ligne.textContent = `${index + 1}: ${item.nb1} ${item.oper} ${item.nb2} = ${item.res}`;
             historique.appendChild(ligne);
-        });
-    }
-});
-
+            });
+};
+        
+export function setup(){
+    document.getElementById('calculer').addEventListener('click', Calculs)
+}
 
  
