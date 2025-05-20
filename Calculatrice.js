@@ -1,3 +1,4 @@
+import { addition, soustraction, multiplication, division} from "./calculsafaire.js";
 const btn = document.getElementById("calculer");
 const resultat = document.getElementById("resultat");
 const historique = document.getElementById("historique");
@@ -39,10 +40,10 @@ btn.addEventListener("click", function () {
     }
 
     switch (oper) {
-        case "+": res = nb1 + nb2; break;
-        case "-": res = nb1 - nb2; break;
-        case "*": res = nb1 * nb2; break;
-        case "/": res = nb1 / nb2; break;
+        case "+": res = addition(nb1,nb2); break;
+        case "-": res = soustraction(nb1,nb2); break;
+        case "*": res = multiplication(nb1,nb2); break;
+        case "/": res = division(nb1,nb2); break;
         default: res = "Opération inconnue";
     }
 
@@ -65,3 +66,6 @@ btn.addEventListener("click", function () {
         });
     }
 });
+
+
+ 
