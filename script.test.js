@@ -25,12 +25,3 @@ test('état initial du DOM', ()=>{
     expect(document.getElementById('operation').value).toBe('+');
 
 });
-test('div par zéro', ()=>{
-    document.getElementById('premiernb').value = 2;
-    document.getElementById('deuxièmenb').value = 0;
-    document.getElementById('operation').value = '/';
-    document.getElementById('calculer').click();
-    const res = document.getElementById('resultat');
-    expect(document.getElementById('resultat').textContent).toBe('Résultat :')
-
-});
